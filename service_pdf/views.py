@@ -1,10 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template import RequestContext
 from django.template.context_processors import csrf
-from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 import os
@@ -22,5 +21,6 @@ def parsing_pdf(request):
     fs = FileSystemStorage()
     saved = fs.save(uploaded_file.name, uploaded_file)
     if saved:
-      return HttpResponse(f"{settings.BASE_DIR}{settings.MEDIA_URL}")
+      url_file = os.path.join(settings.MEDIA_ROOT, uploaded_file.name)
+      return HttpResponse(f"{url_file}")
   return HttpResponse("failed send request")
