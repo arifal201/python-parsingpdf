@@ -24,6 +24,3 @@ def parsing_pdf(request):
     if saved:
       return HttpResponse(f"{settings.BASE_DIR}{settings.MEDIA_URL}")
   return HttpResponse("failed send request")
-
-def home(request):
-  return HttpResponse("hello home")
