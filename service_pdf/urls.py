@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
   path('home', views.home, name='homepage'),
-  path('servicepdf/parsing-pc135', views.parsingpdf, name='parsingpdf'),
+  path('upload', views.upload, name='upload'),
+  path('parsing-pdf', views.parsing_pdf, name='parsing-pdf')
 ]

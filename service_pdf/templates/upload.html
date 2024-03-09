@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Service PDF for PC135
+{% endblock %}
+
+{% block content %}
+<div class="header text-center">
+  <h1>Service PDF</h1>
+</div>
+<form action="parsing-pdf" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="content-hero">
+  </div>
+  <div class="form-group">
+    <label class="form-label">Upload PDF: </label>
+    <input type="file" accept="application/pdf" name="file_upload" class="form form-control mb-3" />
+  </div>
+  <div class="form-group">
+    <input type="submit" class="btn btn-lg btn-primary" />
+  </div>
+</form>
+{% endblock %}
